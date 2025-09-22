@@ -1,5 +1,26 @@
-﻿@{
+﻿@model List<AwesomeAdminsTicketManager.Models.Event>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<h1>Home</h1>
+<h1>All Events</h1>
+
+<div class="container-fluid">
+	<div class="row gy-5 row-cols-auto">
+		@foreach(var eventItem in Model) {
+			<div class="col">
+				<div class="card h-100">
+					<h2 class="card-header">@eventItem.Title</h2>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">ID: @eventItem.EventId</li>
+						<li class="list-group-item">Description: @eventItem.Description</li>
+						<li class="list-group-item">Date Created: @eventItem.Created</li>
+					</ul>
+					<a class="card-footer btn" asp-action="Details" asp-route-id="@eventItem.EventId">View Details</a>
+				</div>
+			</div>
+		}
+	</div>
+</div>
+

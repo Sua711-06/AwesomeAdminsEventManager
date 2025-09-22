@@ -1,6 +1,10 @@
-﻿namespace AwesomeAdminsTicketManager.Models {
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AwesomeAdminsTicketManager.Models {
     public class Event {
+        [Display(Name = "Event ID")]
         public int EventId { get; set; }
+        [Display(Name = "Event Title")]
         public string Title { get; set; } = String.Empty;
         public string Description { get; set; } = String.Empty;
         public DateTime EventDate { get; set; }
