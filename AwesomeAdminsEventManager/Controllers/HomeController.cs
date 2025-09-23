@@ -8,24 +8,11 @@ namespace AwesomeAdminsEventManager.Controllers {
 
 
         public HomeController() {
-
+            
         }
 
         public IActionResult Index() {
-
-            List<Event> events = new List<Event>();
-            for(int i = 0; i <= 20; i++) {
-                events.Add(new Event {
-                    EventId = i,
-                    Title = "sample event " + i,
-                    Description = "description for sample event " + i,
-                    EventDate = DateTime.Now.AddDays(i * 10),
-                    EventTime = DateTime.Now.AddHours(i),
-                    Location = "Sample location for sample event " + i,
-                    Owner = "John Doe",
-                    Created = DateTime.Now
-                });
-            }
+            List<Event> events = simulateGetData();
             return View(events);
         }
 
@@ -33,17 +20,31 @@ namespace AwesomeAdminsEventManager.Controllers {
             return View();
         }
         public IActionResult Details(int id) {
-            var myEvent = new Event {
-                EventId = id,
-                Title = "Sample Event " + id,
-                Description = "This is a sample event description for event " + id + ".",
-                EventDate = DateTime.Now.AddDays(10 * id),
-                EventTime = DateTime.Now.AddHours(5 * id),
-                Location = (id % 2 == 0) ? "456 Elm St, Townsville" : "123 Main St, Cityville",
-                Owner = (id % 2 == 0) ? "Jane Smith" : "John Doe",
-                Created = DateTime.Now
-            };
-            return View(myEvent);
+            List<Event> events = simulateGetData();
+            var selectedEvent = events.FirstOrDefault(e => e.EventId == id);
+            if (selectedEvent == null) {
+                return NotFound();
+            }
+
+
+            return View(selectedEvent);
+        }
+
+        //pretends to retreive data from a database. placeholder for now
+        public List<Event> simulateGetData() {
+            List<Event> events = new List<Event>();
+            for(int i = 0; i <= 20; i++) {
+                events.Add(new Event {
+                    EventId = i,
+                    Name = "sample event " + i,
+                    Description = "description for sample event " + i,
+                    EventDate = DateTime.Now.AddDays(i * 10),
+                    Location = "Sample location for sample event " + i,
+                    Owner = "John Doe",
+                    Created = DateTime.Now
+                });
+            }
+            return events;
         }
     }
 }
