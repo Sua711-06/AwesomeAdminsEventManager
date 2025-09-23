@@ -1,1 +1,1 @@
-# AwesomeAdminsTicketManager
+# Awesome Admins Event Manager
