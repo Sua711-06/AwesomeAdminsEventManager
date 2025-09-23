@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeAdminsTicketManager", "AwesomeAdminsTicketManager\AwesomeAdminsTicketManager.csproj", "{6DA98047-F888-4F72-AEEB-3D395540C51F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeAdminsEventManager", "AwesomeAdminsTicketManager\AwesomeAdminsEventManager.csproj", "{6DA98047-F888-4F72-AEEB-3D395540C51F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

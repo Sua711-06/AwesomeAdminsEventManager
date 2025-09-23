@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using AwesomeAdminsTicketManager.Models;
+using AwesomeAdminsEventManager.Models;
 
-namespace AwesomeAdminsTicketManager.Controllers {
+namespace AwesomeAdminsEventManager.Controllers {
     public class HomeController : Controller {
         
 

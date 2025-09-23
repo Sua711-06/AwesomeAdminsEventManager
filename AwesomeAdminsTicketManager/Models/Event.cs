@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AwesomeAdminsTicketManager.Models {
+namespace AwesomeAdminsEventManager.Models {
     public class Event {
         [Display(Name = "Event ID")]
         public int EventId { get; set; }

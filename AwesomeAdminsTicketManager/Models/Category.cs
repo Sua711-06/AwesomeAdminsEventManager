@@ -1,4 +1,4 @@
-﻿namespace AwesomeAdminsTicketManager.Models {
+﻿namespace AwesomeAdminsEventManager.Models {
     public class Category {
         public int CategoryId { get; set; }
         public string Name { get; set; } = String.Empty;
