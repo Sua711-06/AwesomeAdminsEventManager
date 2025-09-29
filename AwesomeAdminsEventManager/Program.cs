@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using AwesomeAdminsPartyManager.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AwesomeAdminsPartyManagerContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AwesomeAdminsPartyManagerContext") ?? throw new InvalidOperationException("Connection string 'AwesomeAdminsPartyManagerContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

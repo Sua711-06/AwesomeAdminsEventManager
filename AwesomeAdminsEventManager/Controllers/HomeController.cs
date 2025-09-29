@@ -1,5 +1,6 @@
 using AwesomeAdminsPartyManager.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
@@ -26,23 +27,6 @@ namespace AwesomeAdminsPartyManager.Controllers {
 
 
             return View(selectedEvent);
-        }
-
-        //pretends to retreive data from a database. placeholder for now
-        public List<Party> simulateGetData() {
-            List<Party> parties = new List<Party>();
-            for(int i = 0; i <= 20; i++) {
-                parties.Add(new Party {
-                    PartyId = i,
-                    Name = "sample party " + i,
-                    Description = "description for sample party " + i,
-                    EventDate = DateTime.Now.AddDays(i * 10),
-                    Location = "Sample location for sample party " + i,
-                    Owner = "John Doe",
-                    Created = DateTime.Now
-                });
-            }
-            return parties;
-        }
+        }        
     }
 }
