@@ -1,23 +1,23 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AwesomeAdminsEventManager.Models {
-    public class Event {
-        [Display(Name = "Event ID")]
-        public int EventId { get; set; }
+namespace AwesomeAdminsPartyManager.Models {
+    public class Party {
+        [Display(Name = "Party ID")]
+        public int PartyId { get; set; }
 
-        [Display(Name = "Event Name")]
+        [Display(Name = "Party Name")]
         public string Name { get; set; } = String.Empty;
 
-        [Display(Name = "Event Description")]
+        [Display(Name = "Party Description")]
         public string Description { get; set; } = String.Empty;
 
-        [Display(Name = "Event Date")]
+        [Display(Name = "Party Date")]
         public DateTime EventDate { get; set; }
 
-        [Display(Name = "Event Location")]
+        [Display(Name = "Party Location")]
         public string Location { get; set; } = String.Empty;
 
-        [Display(Name = "Event Owner")]
+        [Display(Name = "Party Owner")]
         public string Owner { get; set; } = String.Empty;
 
         [Display(Name = "Created At")]

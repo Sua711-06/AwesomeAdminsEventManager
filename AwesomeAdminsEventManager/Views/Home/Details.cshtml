@@ -1,12 +1,11 @@
-﻿@model AwesomeAdminsEventManager.Models.Event
+﻿@model AwesomeAdminsPartyManager.Models.Party
 @using System.Reflection
 @using System.ComponentModel.DataAnnotations
 
 @{
     ViewData["Title"] = Model.Name;
-    var properties = typeof(AwesomeAdminsEventManager.Models.Event).GetProperties();
+    var properties = typeof(AwesomeAdminsPartyManager.Models.Party).GetProperties();
 }
-
 
 <div class="container-fluid d-flex justify-content-center">
 	<div class="card w-75">
@@ -14,7 +13,7 @@
 		<table class="table table-bordered h-100">
 			<tbody>
 				@foreach(var prop in properties) {
-					if(prop.Name == "Name" || prop.Name == "EventId") continue;
+					if(prop.Name == "Name" || prop.Name == "PartyId") continue;
 					var displayAttr = prop.GetCustomAttribute<DisplayAttribute>();
 					var displayName = displayAttr?.Name ?? prop.Name;
 					var value = prop.GetValue(Model);
@@ -36,8 +35,6 @@
 				}
 			</tbody>
 		</table>
-
-
 	</div>
 </div>
 

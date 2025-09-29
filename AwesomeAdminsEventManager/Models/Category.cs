@@ -1,10 +1,10 @@
-﻿namespace AwesomeAdminsEventManager.Models {
+﻿namespace AwesomeAdminsPartyManager.Models {
     public class Category {
         public int CategoryId { get; set; }
         public string Name { get; set; } = String.Empty;
         public int EventId { get; set; }
 
         //foreign key relationship
-        public Event? Event { get; set; }
+        public Party? Event { get; set; }
     }
 }

@@ -1,18 +1,16 @@
-using AwesomeAdminsEventManager.Models;
+using AwesomeAdminsPartyManager.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-namespace AwesomeAdminsEventManager.Controllers {
+namespace AwesomeAdminsPartyManager.Controllers {
     public class HomeController: Controller {
-
-
         public HomeController() {
             
         }
 
         public IActionResult Index() {
-            List<Event> events = simulateGetData();
+            List<Party> events = simulateGetData();
             return View(events);
         }
 
@@ -20,8 +18,8 @@ namespace AwesomeAdminsEventManager.Controllers {
             return View();
         }
         public IActionResult Details(int id) {
-            List<Event> events = simulateGetData();
-            var selectedEvent = events.FirstOrDefault(e => e.EventId == id);
+            List<Party> events = simulateGetData();
+            var selectedEvent = events.FirstOrDefault(e => e.PartyId == id);
             if (selectedEvent == null) {
                 return NotFound();
             }
@@ -31,20 +29,20 @@ namespace AwesomeAdminsEventManager.Controllers {
         }
 
         //pretends to retreive data from a database. placeholder for now
-        public List<Event> simulateGetData() {
-            List<Event> events = new List<Event>();
+        public List<Party> simulateGetData() {
+            List<Party> parties = new List<Party>();
             for(int i = 0; i <= 20; i++) {
-                events.Add(new Event {
-                    EventId = i,
-                    Name = "sample event " + i,
-                    Description = "description for sample event " + i,
+                parties.Add(new Party {
+                    PartyId = i,
+                    Name = "sample party " + i,
+                    Description = "description for sample party " + i,
                     EventDate = DateTime.Now.AddDays(i * 10),
-                    Location = "Sample location for sample event " + i,
+                    Location = "Sample location for sample party " + i,
                     Owner = "John Doe",
                     Created = DateTime.Now
                 });
             }
-            return events;
+            return parties;
         }
     }
 }
