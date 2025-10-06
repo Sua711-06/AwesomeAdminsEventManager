@@ -1,4 +1,5 @@
 using AwesomeAdminsPartyManager.Models;
+using AwesomeAdminsPartyManager.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -6,27 +7,19 @@ using System.Diagnostics;
 
 namespace AwesomeAdminsPartyManager.Controllers {
     public class HomeController: Controller {
-        public HomeController() {
-            
+        private readonly AwesomeAdminsPartyManagerContext _context;
+
+        public HomeController(AwesomeAdminsPartyManagerContext context) {
+            _context = context;
         }
 
-        public IActionResult Index() {
-            List<Party> events = simulateGetData();
-            return View(events);
+        public async Task<IActionResult> Index() {
+            var parties = await _context.Party.ToListAsync();
+            return View(parties);
         }
 
         public IActionResult Privacy() {
             return View();
         }
-        public IActionResult Details(int id) {
-            List<Party> events = simulateGetData();
-            var selectedEvent = events.FirstOrDefault(e => e.PartyId == id);
-            if (selectedEvent == null) {
-                return NotFound();
-            }
-
-
-            return View(selectedEvent);
-        }        
     }
 }
